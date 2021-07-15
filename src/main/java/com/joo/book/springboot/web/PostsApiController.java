@@ -1,6 +1,7 @@
 package com.joo.book.springboot.web;
 
 import com.joo.book.springboot.service.posts.PostsService;
+import com.joo.book.springboot.web.dto.PostsResponseDto;
 import com.joo.book.springboot.web.dto.PostsSaveRequestDto;
 import com.joo.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,9 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
+    @GetMapping("api/v1/posts/{id}")
+    public PostsResponseDto findById (@PathVariable Long id){
+        return postsService.findById(id);
+    }
 
 }
