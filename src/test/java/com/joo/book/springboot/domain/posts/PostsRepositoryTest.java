@@ -1,6 +1,6 @@
 package com.joo.book.springboot.domain.posts;
 
-import jdk.vm.ci.meta.Local;
+//import jdk.vm.ci.meta.Local;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Test;

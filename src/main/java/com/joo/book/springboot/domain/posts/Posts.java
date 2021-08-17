@@ -9,10 +9,10 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity // 테이블과 링크될 클래스. 카멜케이스가 언더스코어 네이밍으로 매칭됨.
 public class Posts extends BaseTimeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 스프링부트 2.0에서는 옵션을 추가해야 AI가 된다.
     private Long id;
 
     @Column(length = 500, nullable = false)
