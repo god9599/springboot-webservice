@@ -4,6 +4,7 @@ import com.joo.book.springboot.domain.user.User;
 import lombok.Getter;
 
 @Getter
+// SessionUser에는 인증된 사용자 정보만 필요
 public class SessionUser {
     private String name;
     private String email;
