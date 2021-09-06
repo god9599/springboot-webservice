@@ -3,9 +3,11 @@ package com.joo.book.springboot.config.auth.dto;
 import com.joo.book.springboot.domain.user.User;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
 // SessionUser에는 인증된 사용자 정보만 필요
-public class SessionUser {
+public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
