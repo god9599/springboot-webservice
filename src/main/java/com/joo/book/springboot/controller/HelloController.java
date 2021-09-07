@@ -1,4 +1,4 @@
-package com.joo.book.springboot.web;
+package com.joo.book.springboot.controller;
 
 import com.joo.book.springboot.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;

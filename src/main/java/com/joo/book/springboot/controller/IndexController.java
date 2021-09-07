@@ -1,9 +1,9 @@
-package com.joo.book.springboot.web;
+package com.joo.book.springboot.controller;
 
 import com.joo.book.springboot.config.auth.LoginUser;
 import com.joo.book.springboot.config.auth.dto.SessionUser;
 import com.joo.book.springboot.service.posts.PostsService;
-import com.joo.book.springboot.web.dto.PostsResponseDto;
+import com.joo.book.springboot.domain.posts.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

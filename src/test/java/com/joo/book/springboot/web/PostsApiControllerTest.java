@@ -2,8 +2,8 @@ package com.joo.book.springboot.web;
 
 import com.joo.book.springboot.domain.posts.Posts;
 import com.joo.book.springboot.domain.posts.PostsRepository;
-import com.joo.book.springboot.web.dto.PostsSaveRequestDto;
-import com.joo.book.springboot.web.dto.PostsUpdateRequestDto;
+import com.joo.book.springboot.domain.posts.dto.PostsSaveRequestDto;
+import com.joo.book.springboot.domain.posts.dto.PostsUpdateRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Test;

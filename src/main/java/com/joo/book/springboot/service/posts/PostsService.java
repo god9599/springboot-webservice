@@ -1,9 +1,9 @@
 package com.joo.book.springboot.service.posts;
 
-import com.joo.book.springboot.web.dto.PostsListResponseDto;
-import com.joo.book.springboot.web.dto.PostsResponseDto;
-import com.joo.book.springboot.web.dto.PostsSaveRequestDto;
-import com.joo.book.springboot.web.dto.PostsUpdateRequestDto;
+import com.joo.book.springboot.domain.posts.dto.PostsListResponseDto;
+import com.joo.book.springboot.domain.posts.dto.PostsResponseDto;
+import com.joo.book.springboot.domain.posts.dto.PostsSaveRequestDto;
+import com.joo.book.springboot.domain.posts.dto.PostsUpdateRequestDto;
 
 import java.util.List;
 

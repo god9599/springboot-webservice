@@ -1,4 +1,4 @@
-package com.joo.book.springboot.web.dto;
+package com.joo.book.springboot.domain.posts.dto;
 
 import com.joo.book.springboot.domain.posts.Posts;
 import lombok.Builder;
