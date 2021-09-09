@@ -1,4 +1,4 @@
-package com.joo.book.springboot;
+package com.joo.book.springboot.controller;
 
 import com.joo.book.springboot.controller.HelloController;
 import org.junit.Test;
