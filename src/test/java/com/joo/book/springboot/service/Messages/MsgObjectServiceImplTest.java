@@ -102,5 +102,17 @@ class MsgObjectServiceImplTest {
 
     @Test
     void deleteMsgObject() {
+        MsgObject save = MsgObject.builder()
+                .msgLang("z")
+                .msgCode("f")
+                .msgType("zz")
+                .msgText("z")
+                .msgDefinition("gg")
+                .cusrId(1L)
+                .build();
+
+        msgObejctRepository.save(save);
+        msgObejctRepository.delete(msgObejctRepository.findByMsgLangAndMsgCode("z", "f"));
+        Assertions.assertNull(msgObejctRepository.findByMsgLangAndMsgCode("z", "f"));
     }
 }
