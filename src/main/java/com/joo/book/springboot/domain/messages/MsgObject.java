@@ -44,7 +44,13 @@ public class MsgObject extends BaseTimeEntity {
     private Long musrId;
 
     @Builder
-    public MsgObject(String msgLang, String msgCode, String msgType, String msgText, String msgDefinition, Long cusrId, Long musrId){
+    public MsgObject(String msgLang,
+                     String msgCode,
+                     String msgType,
+                     String msgText,
+                     String msgDefinition,
+                     Long cusrId,
+                     Long musrId){
         this.msgLang = msgLang;
         this.msgCode = msgCode;
         this.msgType = msgType;
@@ -53,7 +59,12 @@ public class MsgObject extends BaseTimeEntity {
         this.cusrId = cusrId;
     }
 
-    public String update(String msgLang, String msgCode, String msgType, String msgText, String msgDefinition, Long musrId) {
+    public String update(String msgLang,
+                         String msgCode,
+                         String msgType,
+                         String msgText,
+                         String msgDefinition,
+                         Long musrId) {
         this.msgLang = msgLang;
         this.msgCode = msgCode;
         this.msgType = msgType;

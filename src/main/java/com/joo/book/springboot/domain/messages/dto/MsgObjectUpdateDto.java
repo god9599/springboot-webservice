@@ -15,7 +15,12 @@ public class MsgObjectUpdateDto {
     private Long musrId;
 
     @Builder
-    public MsgObjectUpdateDto(String msgLang, String msgCode, String msgType, String msgText, String msgDefinition, Long musrId) {
+    public MsgObjectUpdateDto(String msgLang,
+                              String msgCode,
+                              String msgType,
+                              String msgText,
+                              String msgDefinition,
+                              Long musrId) {
         this.msgLang = msgLang;
         this.msgCode = msgCode;
         this.msgType = msgType;

@@ -15,7 +15,11 @@ public class MsgObjectInsertDto {
     private Long cusrId;
 
     @Builder
-    public MsgObjectInsertDto(String msgLang, String msgCode, String msgText, String msgDefinition, Long cusrId) {
+    public MsgObjectInsertDto(String msgLang,
+                              String msgCode,
+                              String msgText,
+                              String msgDefinition,
+                              Long cusrId) {
         this.msgLang = msgLang;
         this.msgCode = msgCode;
         this.msgText = msgText;
