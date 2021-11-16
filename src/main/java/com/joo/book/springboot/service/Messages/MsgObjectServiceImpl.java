@@ -7,13 +7,15 @@ import com.joo.book.springboot.domain.messages.dto.MsgObjectResponseDto;
 import com.joo.book.springboot.domain.messages.dto.MsgObjectUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Transactional
 @Service
 public class MsgObjectServiceImpl implements MsgObjectService{
+
     private final MsgObejctRepository msgObjectRepository;
 
     @Transactional
@@ -23,24 +25,42 @@ public class MsgObjectServiceImpl implements MsgObjectService{
         return new MsgObjectResponseDto(msgObject);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public MsgObjectResponseDto findMsgObject(String msgLang, String msgCode) {
-        MsgObject msgObjects = msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode);
-        return new MsgObjectResponseDto(msgObjects);
+        Optional<MsgObject> msgObject = msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode);
+        return msgObject.map(MsgObjectResponseDto::new).orElseGet(MsgObjectResponseDto::new);
     }
 
     @Transactional
     @Override
     public void updateMsgObject(String msgLang, String msgCode, MsgObjectUpdateDto msgObjectUpdateDto) {
-        MsgObject msgObject = msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode);
-        msgObject.update(msgObjectUpdateDto.getMsgLang(), msgObjectUpdateDto.getMsgCode(), msgObjectUpdateDto.getMsgType(), msgObjectUpdateDto.getMsgText(), msgObjectUpdateDto.getMsgDefinition(), msgObjectUpdateDto.getMusrId());
+        MsgObject msgObject = msgNullCheck(msgLang, msgCode);
+        msgObject.update(msgObjectUpdateDto.getMsgLang(),
+                msgObjectUpdateDto.getMsgCode(),
+                msgObjectUpdateDto.getMsgType(),
+                msgObjectUpdateDto.getMsgText(),
+                msgObjectUpdateDto.getMsgDefinition(),
+                msgObjectUpdateDto.getMusrId());
     }
 
     @Transactional
     @Override
     public void deleteMsgObject(String msgLang, String msgCode) {
-        MsgObject msgObjectPk = msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode);
-        msgObjectRepository.delete(msgObjectPk);
+        MsgObject msgObject = msgNullCheck(msgLang, msgCode);
+        msgObjectRepository.delete(msgObject);
+    }
+
+    public MsgObject msgNullCheck(String msgLang, String msgCode) {
+
+        return msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode)
+                .orElseThrow(() -> new IllegalArgumentException("해당 메시지가 없습니다."));
+    }
+
+    public void duplicateCheck(String msgLang, String msgCode) {
+        msgObjectRepository.findByMsgLangAndMsgCode(msgLang, msgCode)
+                .ifPresent(m -> {
+                    throw new IllegalStateException("이미 존재하는 메시지입니다.");
+                });
     }
 }

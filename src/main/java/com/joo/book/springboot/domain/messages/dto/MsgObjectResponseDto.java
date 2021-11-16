@@ -2,9 +2,10 @@ package com.joo.book.springboot.domain.messages.dto;
 
 import com.joo.book.springboot.domain.messages.MsgObject;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @Getter
 public class MsgObjectResponseDto {
     private String msgLang;
